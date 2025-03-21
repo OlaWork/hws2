@@ -5,7 +5,6 @@ import React, {
 } from "react";
 import s from "./SuperCheckbox.module.css";
 
-// тип пропсов обычного инпута
 type DefaultInputPropsType = DetailedHTMLProps<
   InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
@@ -24,7 +23,7 @@ const SuperCheckbox: React.FC<SuperCheckboxPropsType> = ({
   children, // в эту переменную попадёт текст, типизировать не нужно так как он затипизирован в React.FC
   id,
 
-  ...restProps // все остальные пропсы попадут в объект restProps
+  ...restProps
 }) => {
   const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
     // задачка на написание онченджа
