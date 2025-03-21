@@ -1,83 +1,75 @@
-import React from 'react'
-import Affair from './affair/Affair'
-import s from './Affairs.module.css'
-import {AffairType, FilterType} from "../HW2";
+import React from "react";
+import Affair from "./affair/Affair";
+import s from "./Affairs.module.css";
+import { AffairType, FilterType } from "../HW2";
 // import {AffairType, AffairsPropsType} from "../types";
 
 export type AffairsPropsType = {
-    data: AffairType[]
-    setFilter: (filter: FilterType) => void
-    deleteAffairCallback: (_id: number) => void
-    filter: FilterType
-}
+  data: AffairType[];
+  setFilter: (filter: FilterType) => void;
+  deleteAffairCallback: (_id: number) => void;
+  filter: FilterType;
+};
 
 function Affairs({
-                     data,
-                     setFilter,
-                     deleteAffairCallback,
-                     filter
-                 }: AffairsPropsType) {
-    const setAll = () => {
-        setFilter('all')
-    }
-    const setHigh = () => {
-        setFilter('high')
-    }
-    const setMiddle = () => {
-        setFilter('middle')
-    }
-    const setLow = () => {
-        setFilter('low')
-    }
+  data,
+  setFilter,
+  deleteAffairCallback,
+  filter,
+}: AffairsPropsType) {
+  const setAll = () => {
+    setFilter("all");
+  };
+  const setHigh = () => {
+    setFilter("high");
+  };
+  const setMiddle = () => {
+    setFilter("middle");
+  };
+  const setLow = () => {
+    setFilter("low");
+  };
 
-    const cnAll = s.button + ' ' + s.all + (filter === 'all' ? ' ' + s.active : '')
-    const cnHigh = s.button + ' ' + s.high + (filter === 'high' ? ' ' + s.active : '')
-    const cnMiddle = s.button + ' ' + s.middle + (filter === 'middle' ? ' ' + s.active : '')
-    const cnLow = s.button + ' ' + s.low + (filter === 'low' ? ' ' + s.active : '')
+  const cnAll =
+    s.button + " " + s.all + (filter === "all" ? " " + s.active : "");
+  const cnHigh =
+    s.button + " " + s.high + (filter === "high" ? " " + s.active : "");
+  const cnMiddle =
+    s.button + " " + s.middle + (filter === "middle" ? " " + s.active : "");
+  const cnLow =
+    s.button + " " + s.low + (filter === "low" ? " " + s.active : "");
 
-    const mappedAffairs = data.map((a: AffairType) => (
-        <Affair
-            key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
-            affair={a}
-            deleteAffairCallback={deleteAffairCallback}
-        />
-    ))
-console.log(data)
-    return (
-        <div>
-            <div className={s.buttonContainer}>
-                <button
-                    id={'hw2-button-all'}
-                    onClick={setAll}
-                    className={cnAll}
-                >
-                    All
-                </button>
-                <button
-                    id={'hw2-button-high'}
-                    onClick={setHigh}
-                    className={cnHigh}
-                >
-                    High
-                </button>
-                <button
-                    id={'hw2-button-middle'}
-                    onClick={setMiddle}
-                    className={cnMiddle}
-                >
-                    Middle
-                </button>
-                <button
-                    id={'hw2-button-low'}
-                    onClick={setLow}
-                    className={cnLow}
-                >
-                    Low
-                </button>
-            </div>
-            <div className={s.affairs}>{mappedAffairs}</div>
-        </div>
-    )
+  const mappedAffairs = data.map((a: AffairType) => (
+    <Affair
+      key={a._id} // кеи ОБЯЗАТЕЛЬНЫ в 99% - так что лучше их писать всегда при создании компонент в мапе
+      affair={a}
+      deleteAffairCallback={deleteAffairCallback}
+    />
+  ));
+  console.log(data);
+  return (
+    <div>
+      <div className={s.buttonContainer}>
+        <button id={"hw2-button-all"} onClick={setAll} className={cnAll}>
+          All
+        </button>
+        <button id={"hw2-button-high"} onClick={setHigh} className={cnHigh}>
+          High
+        </button>
+        <button
+          id={"hw2-button-middle"}
+          onClick={setMiddle}
+          className={cnMiddle}
+        >
+          Middle
+        </button>
+        <button id={"hw2-button-low"} onClick={setLow} className={cnLow}>
+          Low
+        </button>
+      </div>
+      <div className={s.affairs}>{mappedAffairs}</div>
+    </div>
+  );
 }
 
-export default Affairs
+export default Affairs;
