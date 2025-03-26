@@ -10,7 +10,7 @@ function App() {
       <HW5 />
       <HW6 />
       <HW7 />
-      {/*<HW8 />*/}
+      <HW8 />
     </div>
   );
 }
