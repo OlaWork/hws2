@@ -7,8 +7,8 @@ import HW8 from "../s2-homeworks/hw08/HW8";
 function App() {
   return (
     <div>
-      <HW5 />
-      {/*<HW6 />*/}
+      {/*<HW5 />*/}
+      <HW6 />
       {/*<HW7 />*/}
       {/*<HW8 />*/}
     </div>
