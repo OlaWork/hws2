@@ -8,8 +8,8 @@ function App() {
   return (
     <div>
       {/*<HW5 />*/}
-      <HW6 />
-      {/*<HW7 />*/}
+      {/*<HW6 />*/}
+      <HW7 />
       {/*<HW8 />*/}
     </div>
   );
